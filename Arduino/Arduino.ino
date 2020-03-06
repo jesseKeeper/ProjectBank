@@ -88,24 +88,21 @@ void readBlock(int blockNumber, byte arrayAddress[]){
     }
 }
 
-void loop() {
-  static unsigned long startTime = millis();
-  if(mfrc522.PICC_ReadCardSerial() || mfrc522.PICC_IsNewCardPresent()){
-    startTime = millis();
-    content = "";
-    getUID();
-//    getIBAN(); // Als je de iBan wilt zien gebruik deze line
-    if(content != cUID && content != ""){
-      cUID = content; // wat de huidige kaart is wordt hier tijdelijk opgeslagen
-      Serial.print(content.substring(1));
-    } 
-  } else if(!mfrc522.PICC_IsNewCardPresent() && (millis () - startTime >= 200 && millis () - startTime <= 250)){
-    cUID = "";
-//    Serial.print("false");
+void getIban(){
+  if(mfrc522.PICC_ReadCardSerial()){
+    return;
   }
-  
+  if(mfrc522.PICC_IsNewCardPresent()){
+    return;
+  }
+  readBlock();
+}
+
+
+void loop() {
   Key = keypad.getKey();
   if(Key != NULL) { 
       Serial.print(Key);
     } 
+  getIban();
 }
