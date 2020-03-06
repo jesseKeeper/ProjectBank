@@ -18,7 +18,9 @@ Pushen naar git:
 Als je net een account heb aangemaakt, open Git Bash in een folder  
 Eerste command:  git config --global user.email "VUL_IN"  
 Tweede command:  git config --global user.name "VUL_IN"  
-Derde command:  git clone LINK_NAAR_REPO (Doe dit in de hoofdmap voor elke keer dat je een nieuwe REPO gaat gebruiken)
+
+(Doe dit in de hoofdmap voor elke keer dat je een nieuwe REPO gaat gebruiken)  
+git clone LINK_NAAR_REPO 
 
 Als je elke keer moet inloggen kan je gebruik maken van een SSH-key  
 Maak hem aan via:  
