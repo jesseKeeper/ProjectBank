@@ -5,8 +5,8 @@ Hier komt de Arduino code en Java code op te staan die gebruikt gaat worden tijd
 Pushen en pullen naar git:  
 =======
 
-Pullen van git:  
-(Doe dit aan het begin van elke sessie / commit)  
+Pullen van Git:  
+(Doe dit aan het begin van elke sessie / en voordat je commit, anders krijg je een merge wat je wilt voorkomen)  
 git pull  
 
 Pushen naar git:  
