@@ -2,14 +2,14 @@
 Dit is de GitHub voor Project 3/4 2019/2020  
 Hier komt de Arduino code en Java code op te staan die gebruikt gaat worden tijdens het Project 3/4
 
-Pushen en pullen naar git:  
+Pushen en pullen naar Git:  
 =======
 
 Pullen van Git:  
 (Doe dit aan het begin van elke sessie / en voordat je commit, anders krijg je een merge wat je wilt voorkomen)  
 git pull  
 
-Pushen naar git:  
+Pushen naar Git:  
    git add .  
    git commit -m "tekst"  
    git push  
