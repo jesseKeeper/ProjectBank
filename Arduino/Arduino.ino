@@ -118,5 +118,6 @@ void getUid() {
     UID.concat(String(mfrc522.uid.uidByte[i] < 0x10 ? " 0" : " "));
     UID.concat(String(mfrc522.uid.uidByte[i], HEX));
   }
-  Serial.println(UID);
+  UID.toUpperCase();
+  Serial.println(UID.substring(1));
 }
