@@ -15,7 +15,7 @@ CREATE TABLE `KaartGegevens` (
     `Saldo` FLOAT(255, 2) DEFAULT null,
     primary key (`iBanNR`)
     #CONSTRAINT `Eigenaar_id` FOREIGN KEY (`EigenaarInfo`),
-    #REFERENCES `EigenaarInfo` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+    #REFERENCES `EigenaarInfo` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 )CHARSET=utf8;
 
 BEGIN;
@@ -33,6 +33,13 @@ CREATE TABLE `EigenaarInfo` (
 )CHARSET=utf8;
 
 BEGIN;
-INSERT INTO `EigenaarInfo` VALUES (1, "Jesse", "Doelman", "1234NL", "17"), (2, "TEST", "TESTER", "4321NL", "15");
+INSERT INTO `EigenaarInfo` VALUES (1, "Jesse", "Doelman", "1234 NL", "17"), (2, "TEST", "TESTER", "4321 NL", "15");
 
-SELECT concat(eigenaarinfo.Achternaam, ", ", eigenaarinfo.Voornaam) AS Rekeninghouder, kaartgegevens.iBanNR, kaartgegevens.PIN, kaartgegevens.Saldo FROM eigenaarinfo, kaartgegevens WHERE eigenaarinfo.id = kaartgegevens.Eigenaar_id;
+#test query met alles als resultaat
+SELECT concat(eigenaarinfo.Achternaam, ", ", eigenaarinfo.Voornaam) AS Rekeninghouder, 
+CONCAT(eigenaarinfo.postcode, ", ", eigenaarinfo.huisnummer) AS adres, 
+kaartgegevens.iBanNR as iBan, kaartgegevens.PIN, kaartgegevens.CardUID AS UID, 
+kaartgegevens.Attemps AS pogingen, kaartgegevens.Saldo 
+
+FROM eigenaarinfo, kaartgegevens 
+WHERE eigenaarinfo.id = kaartgegevens.Eigenaar_id;
