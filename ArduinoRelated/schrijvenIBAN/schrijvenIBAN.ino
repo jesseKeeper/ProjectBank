@@ -16,9 +16,9 @@
    3.3V -> 3.3V
 */
 
+// RFID settings
 #include <SPI.h>
 #include <MFRC522.h>
-
 #define SS_PIN 10
 #define RST_PIN 9
 MFRC522 mfrc522(SS_PIN, RST_PIN);
@@ -54,8 +54,6 @@ void loop() {
   for (index = 0; index < 6; index++) {
     key.keyByte[index] = 0xFF;
   }
-
-  Serial.println("Card selected");
 
   // Write the block
   writeBlock(block, blockContent);
