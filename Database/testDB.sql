@@ -5,39 +5,44 @@ USE `Bank3C`;
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
-DROP TABLE IF EXISTS `Rekening`;
-CREATE TABLE `Rekening` (
-    `iBanNR` varchar(15) NOT NULL,
-    `CardUID` varchar(10) DEFAULT NULL,
-    `Eigenaar_id` int(5) NOT NULL,
+DROP TABLE IF EXISTS `rekening`;
+CREATE TABLE `rekening` (
+    `iBan` varchar(15) NOT NULL,
+    `cardUID` varchar(11) DEFAULT NULL,
+    `rekeninghouder_id` int(5) NOT NULL,
     `PIN` varchar(4) NOT NULL,
-    `Attemps` int(2) DEFAULT NULL,
-    `Saldo` FLOAT(255, 2) DEFAULT null,
-    primary key (`iBanNR`)
+    `attemps` int(2) DEFAULT NULL,
+    `saldo` FLOAT(255, 2) DEFAULT null,
+    primary key (`iBan`)
 )CHARSET=utf8;
 
 BEGIN;
-INSERT INTO `Rekening` VALUES ("TEST 12 3456789", "1234567890", 1, 9191, 3, 500.34), ("TEST 98 7654321", "9876543210", 2, 4567, 1, 99.21), ("RABO TEST 123456", "963852741", 3, 4213, 3, 9842.69);
+INSERT INTO `rekening` VALUES ("TEST 12 3456789", "D2 42 3A 1B", 1, 9191, 3, 500.34), 
+("TEST 98 7654321", "10987654321", 2, 4567, 1, 99.21), ("RABO TEST 123456", "96 5R 4C CE", 3, 4213, 3, 9420.69), 
+("1234567890", "21 9C 87 6A", 1, 1111, 3, 1.01), ("Derde rekening", "Geen UID", 1, 8516, 0, 1000.01);
 COMMIT;
 
-DROP TABLE IF EXISTS `EigenaarInfo`;
-CREATE TABLE `EigenaarInfo` (
-    `id` int(5) NOT NULL auto_increment,
-    `Voornaam` varchar(100) NOT NULL,
-    `Achternaam` varchar(100) NOT NULL,
-    `postcode` varchar(15) DEFAULT NULL, 
-    `huisnummer` varchar(15) DEFAULT NULL,
+DROP TABLE IF EXISTS `rekeninghouder`;
+CREATE TABLE `rekeninghouder` (
+    `id` INT(5) NOT NULL,
+    `voornaam` varchar(100) NOT NULL,
+    `achternaam` varchar(100) NOT NULL,
+    `postcode` varchar(15) NULL, 
+    `huisnummer` varchar(15) NULL,
     primary key (`id`)
 )CHARSET=utf8;
 
 BEGIN;
-INSERT INTO `EigenaarInfo` VALUES (1, "Jesse", "Doelman", "1234 NL", "17"), (2, "TEST", "TESTER", "4321 NL", "15"), (3, "tester", "test", NULL, NULL);
+INSERT INTO `rekeninghouder` VALUES (1, "Jesse", "Doelman", "1234 NL", "17"), 
+(2, "TEST", "TESTER", "4321 NL", "15"), (3, "tester", "test", NULL, NULL);
+COMMIT;
 
 #test query met alles als resultaat
-SELECT concat(eigenaarinfo.Achternaam, ", ", eigenaarinfo.Voornaam) AS Rekeninghouder, 
-CONCAT(eigenaarinfo.postcode, ", ", eigenaarinfo.huisnummer) AS adres, 
-Rekening.iBanNR as iBan, Rekening.PIN, Rekening.CardUID AS UID, 
-Rekening.Attemps AS pogingen, Rekening.Saldo 
+SELECT concat(rekeninghouder.achternaam, ", ", rekeninghouder.voornaam) AS Rekeninghouder, 
+CONCAT(rekeninghouder.postcode, ", ", rekeninghouder.huisnummer) AS adres, 
+rekening.iBan, rekening.PIN, rekening.cardUID AS UID, 
+rekening.attemps AS pogingen, rekening.saldo 
 
-FROM eigenaarinfo, Rekening 
-WHERE eigenaarinfo.id = Rekening.Eigenaar_id;
+FROM rekeninghouder, rekening 
+WHERE rekeninghouder.id = rekening.rekeninghouder_id
+ORDER BY rekening.rekeninghouder_id, rekening.saldo desc;
