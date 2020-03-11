@@ -24,7 +24,7 @@ INSERT INTO `rekening` VALUES ("TEST 12 3456789", "D2 42 3A 1B", 1, 9191, 3, 500
 
 DROP TABLE IF EXISTS `rekeninghouder`;
 CREATE TABLE `rekeninghouder` (
-    `id` INT(5) NOT NULL,
+    `id` INT(5) auto_increment,
     `voornaam` varchar(100) NOT NULL,
     `achternaam` varchar(100) NOT NULL,
     `geboortedatum` DATE NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE `rekeninghouder` (
 )CHARSET=utf8;
 
 INSERT INTO `rekeninghouder` VALUES (1, "Jesse", "Doelman", "2000-10-29", "1234 NL", "17"), 
-(2, "TEST", "TESTER", "1999-1-1", "4321 NL", "15"), (3, "tester", "test", "1999-2-2",NULL, NULL);
+(2, "TEST", "TESTER", "1999-1-1", "4321 NL", "15"), (3, "tester", "test", "1999-2-2",NULL, NULL), (NULL, "testAuto", "incrementTest", "2020-3-11", NULL, NULL);
 
 #test query met alles als resultaat
 SELECT concat(rekeninghouder.achternaam, ", ", rekeninghouder.voornaam) AS Rekeninghouder, 
