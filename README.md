@@ -14,6 +14,9 @@ Pushen naar Git:
    git commit -m "tekst"  
    git push  
 
+How to use Branch: (Voorkom merge conflicts)  
+git checkout Naam_van_branch  
+werk hier in zodat er geen conflicts zijn!  
 
 Als je net een account heb aangemaakt, open Git Bash in een folder  
 Eerste command:  git config --global user.email "VUL_IN"  
