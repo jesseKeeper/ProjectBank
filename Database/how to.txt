@@ -1,0 +1,9 @@
+sudo mysql
+voer wachtwoord server in
+
+use Bank3c;
+
+// add ip:
+cd ../../etc/mysql/mysql.conf.d/
+sudo nano mysqld.cnf 
+bind-address        = IP INVULLEN
