@@ -17,7 +17,9 @@ CREATE TABLE `rekening` (
 )CHARSET=utf8;
 
 
-INSERT INTO `rekening` VALUES ("TEST 12 3456789", "D2 42 3A 1B", 1, 9191, 3, 500.34), ("TEST 98 7654321", "10987654321", 2, 4567, 1, 99.21), ("RABO TEST 123456", "96 5R 4C CE", 3, 4213, 3, 9420.69), ("1234567890", "21 9C 87 6A", 1, 1111, 3, 1.01), ("Derde rekening", "Geen UID", 1, 8516, 0, 1000.01), ("Tweede rekening", "Geen UID", 2, 6742, 2, 999.42);
+INSERT INTO `rekening` VALUES ("TEST 12 3456789", "D2 42 3A 1B", 1, 9191, 3, 500.34), ("TEST 98 7654321", "10987654321", 2, 4567, 1, 99.21), 
+("RABO TEST 12345", "96 5R 4C CE", 3, 4213, 3, 9420.69), ("1234567890", "21 9C 87 6A", 1, 1111, 3, 1.01), 
+("Derde rekening", "Geen UID", 1, 8516, 0, 1000.01), ("Tweede rekening", "Geen UID", 2, 6742, 2, 999.42);
 
 
 DROP TABLE IF EXISTS `rekeninghouder`;
