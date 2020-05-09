@@ -1,10 +1,10 @@
 import java.util.Scanner;
-
 import com.fazecast.jSerialComm.SerialPort;
 import com.fazecast.jSerialComm.SerialPortDataListener;
 import com.fazecast.jSerialComm.SerialPortEvent;
 
 public class MainClass {
+	static MainClass mainClass;
 
 	SerialPort activePort;
 	SerialPort[] ports = SerialPort.getCommPorts();
@@ -52,7 +52,12 @@ public class MainClass {
 		}
 	
 	public static void main(String[] args) {
-		MainClass mainClass = new MainClass();
+		mainClass = new MainClass();
+		try {
+			Class.forName("com/fazecast/jSerialComm/SerialPortDataListener");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 		mainClass.start();
 		}
 	

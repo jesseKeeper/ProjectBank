@@ -1,14 +1,11 @@
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JPanel;
 import javax.swing.ImageIcon;
-import java.sql.*;  
 
 public class App implements gegevens {
 
@@ -32,10 +29,8 @@ public class App implements gegevens {
 		initialize();
 		
 	}
-
 	
 	private void initialize() {
-		
 		global myglobal = new global();
 		myglobal.Hrekening = rekening; 
 		myglobal.hPogingen = pogingen;
