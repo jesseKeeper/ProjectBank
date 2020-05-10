@@ -29,7 +29,7 @@ byte index;
 int block = 1;
 
 // Change the bank number that will be written to the block.
-byte blockContent[18] = {"NK-STNK-01826356"};
+byte blockContent[18] = {"CO 31 RR 123457"};
 
 byte readBackBlock[16];
 

@@ -94,7 +94,7 @@ public class App implements gegevens {
 		frmGui.getContentPane().add(btnNewButton_6);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Tim Karadeniz\\Pictures\\stonks.png"));
+		lblNewLabel_1.setIcon(new ImageIcon("../images/stonks.png"));
 		lblNewLabel_1.setBounds(820, 0, 847, 271);
 		frmGui.getContentPane().add(lblNewLabel_1);
 		
