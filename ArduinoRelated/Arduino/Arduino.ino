@@ -62,7 +62,7 @@ void loop() {
     key.keyByte[index] = 0xFF;
   }
 
-  readBlock(block, readBackBlock);  // Gives the iBan of the given card
+//  readBlock(block, readBackBlock);  // Gives the iBan of the given card
   getUid();                         // Gives the UID of the given card
 
   // End authentication
