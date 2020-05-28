@@ -5,6 +5,8 @@
  */
 package guitest;
 
+import javax.swing.JLabel;
+
 /**
  *
  * @author Tim Karadeniz
@@ -15,7 +17,6 @@ public class NewJFrame extends javax.swing.JFrame {
      * Creates new form NewJFrame
      */
     public NewJFrame() {
-        
         initComponents();
     }
 
@@ -27,7 +28,6 @@ public class NewJFrame extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
         jLayeredPane1 = new javax.swing.JLayeredPane();
         jLabel2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -454,10 +454,15 @@ void terugNaarHoofd(){
      jLabel24.setEnabled(false);
     jLabel24.setVisible(false);
 }
+
+private void disableLabel(JLabel label){
+    label.setVisible(false);
+    label.setEnabled(false);
+}
 /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public void GUI() {
         
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
