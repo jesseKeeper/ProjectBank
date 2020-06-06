@@ -36,6 +36,7 @@ void loop() {
     datum = Serial.readStringUntil('&');
     tijd = Serial.readStringUntil('&');
     rekeningnr = Serial.readStringUntil('&');
+    rekeningnr.remove(0,12);
     s = Serial.readStringUntil('&');
     bedrag = s.toInt();
     pinbedrag = bedrag;
