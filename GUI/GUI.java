@@ -265,7 +265,7 @@ public class GUI extends JFrame {
 	}
 	
 	public void saldoCheckScherm(float saldo) {
-		saldoCheckLabel.setText("<html><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Uw saldo is " + saldo + "0<br><br><br><br><br>A) Terug naar Hoofdmenu </html>");
+		saldoCheckLabel.setText("<html><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Uw saldo is " + saldo + "<br><br><br><br><br>A) Terug naar Hoofdmenu </html>");
 		showPanel("saldoCheckScherm");
 	}
 	

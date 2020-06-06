@@ -66,7 +66,7 @@ public class Program {
 				while(pin.length() <= 3) { // zorgt ervoor dat er 4 cijfers komen in de pin string komen
 					gui.pinInvoerScherm(pin.length());
 					uno(1);
-					if(data.equals("A") || data.equals("B") || data.equals("C") || data.equals("N") || data.equals("*")){ // zorgt ervoor dat er geen letters in de pin kunnen komen
+					if(data.equals("A") || data.equals("B") || data.equals("C") || data.equals("*")){ // zorgt ervoor dat er geen letters in de pin kunnen komen
 					} else if(data.equals("D")){ // de pin wordt geleegd
 						pin = ""; 
 						System.out.println("Pin is geleegd");
