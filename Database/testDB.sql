@@ -32,14 +32,16 @@ CREATE TABLE `rekeninghouder` (
 )CHARSET=utf8;
 
 INSERT INTO `rekeninghouder` VALUES (1, "Jesse", "Doelman", "2000-10-29", "1234 NL", "17"), 
-(2, "TEST", "TESTER", "1999-1-1", "4321 NL", "15"), (3, "tester", "test", "1999-2-2",NULL, NULL), 
-(NULL, "testAuto", "incrementTest", "2020-3-11", NULL, NULL);
 
-# The needed user for the java Application
-#DROP USER if EXISTS `JavaApp`@`localhost`;
-#CREATE USER `JavaApp`@`localhost` IDENTIFIED BY 'TheBestAnAppCanGet';
-#REVOKE ALL ON bank3C.rekening FROM `JavaApp`@`localhost`;
-#GRANT SELECT (iBan, cardUID, PIN, hashedPIN, Salt, attemps, saldo), 
-#UPDATE (attemps, saldo) ON bank3C.rekening 
-#TO `JavaApp`@`localhost`;
-#rekeningFLUSH PRIVILEGES;
+(2, "TEST", "TESTER", "1999-1-1", "4321 NL", "15"), (3, "tester", "test", "1999-2-2",NULL, NULL), (NULL, "testAuto", "incrementTest", "2020-3-11", NULL, NULL);
+
+#test query met alles als resultaat
+SELECT concat(rekeninghouder.achternaam, ", ", rekeninghouder.voornaam) AS Rekeninghouder, 
+rekeninghouder.geboortedatum,
+CONCAT(rekeninghouder.postcode, ", ", rekeninghouder.huisnummer) AS adres, 
+rekening.iBan, rekening.PIN, rekening.cardUID AS UID, 
+rekening.attemps AS pogingen, rekening.saldo 
+
+FROM rekeninghouder, rekening 
+WHERE rekeninghouder.id = rekening.rekeninghouder_id
+ORDER BY rekening.rekeninghouder_id, rekening.saldo desc;
