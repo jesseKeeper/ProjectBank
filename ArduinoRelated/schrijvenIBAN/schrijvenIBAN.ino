@@ -29,9 +29,9 @@ byte index;
 int block = 1;
 
 // Change the bank number that will be written to the block.
-byte blockContent[16] = {"TEST 12 3456789"};
+byte blockContent[18] = {"NK-STNK-01826356"};
 
-byte readBackBlock[15];
+byte readBackBlock[16];
 
 void setup() {
   Serial.begin(9600);

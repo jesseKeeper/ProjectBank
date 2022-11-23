@@ -23,7 +23,7 @@ MFRC522::MIFARE_Key key;
 String content = "";
 byte index;
 int block = 1;
-byte readBackBlock[15];
+byte readBackBlock[16];
 
 void setup() {
   Serial.begin(9600);
@@ -63,7 +63,7 @@ void loop() {
   }
 
   readBlock(block, readBackBlock);  // Gives the iBan of the given card
-  getUid();                         // Gives the UID of the given card
+//  getUid();                         // Gives the UID of the given card
 
   // End authentication
   mfrc522.PICC_HaltA();
